@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AjdinBukvicASAOsiguranje.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image Source="asalogo.png" HeightRequest="90"></Image>
+            <Frame BackgroundColor="White" BorderColor="Transparent">
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,-20,0,10">
+                    <Label Text="dobro došli " TextColor="DarkBlue" FontSize="Large"></Label>
+                    <Label Text="Ajdin Bukvić" TextColor="Blue" FontAttributes="Bold" FontSize="Large"></Label>
+                </HorizontalStackLayout>
+            </Frame>
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,-20,0,0">
+                <Frame  
+                  CornerRadius="10"
+                  HorizontalOptions="Start"
+                  BackgroundColor="White"
+                  WidthRequest="150"
+                  HeightRequest="60"
+                  Padding="0"
+                  BorderColor="Transparent"
+                  Margin="40,0,40,0">
+
+                    <HorizontalStackLayout>
+                    <Image Source="calendar.png" HeightRequest="24" Margin="0,0,20,20"></Image>
+                    <VerticalStackLayout>
+                        <Label Text="Datum"></Label>
+                        <DatePicker                                
+                            HorizontalOptions="CenterAndExpand"
+                            x:Name="uneseniDatum"
+                            Format="dd.M.yyyy."></DatePicker>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame  
+                  CornerRadius="10"
+                  HorizontalOptions="End"
+                  BackgroundColor="White"
+                  WidthRequest="170"
+                  HeightRequest="60"
+                  Padding="0"
+                  BorderColor="Transparent">
+                <HorizontalStackLayout>
+                        <Image Source="officechair.png" HeightRequest="24" Margin="0,0,20,20"></Image>
+                    <VerticalStackLayout>
+                        <Label Text="Klasa"></Label>
+                        <Picker x:Name="odabirKlase" Title="Odabir" ItemDisplayBinding="{Binding NazivKlase}"></Picker>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+            </HorizontalStackLayout>
+            <Frame BackgroundColor="White" VerticalOptions="FillAndExpand" BorderColor="Transparent" Margin="0,-10,0,0">
+                <VerticalStackLayout>
+                    <Label Text="Vrsta osiguranja" TextColor="Blue" TextTransform="Uppercase"></Label>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Frame HorizontalOptions="Start" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[0].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="putnozdravstvenoosiguranje.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta1"></Label>
+                                <Entry                                 
+                                Placeholder="kilometara" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric"
+                                x:Name="unos1"
+                                >
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[1].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="asadom.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta2"></Label>
+                                <Entry                                 
+                                Placeholder="kvadrata" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="unos2">
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame HorizontalOptions="End" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[2].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="putnozdravstvenoosiguranje.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta3"></Label>
+                                <Entry                                 
+                                Placeholder="osoba" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="unos3">
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,-30,0,0">
+                        <Frame HorizontalOptions="Start" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[3].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="pomocnacesti.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta4"></Label>
+                                <Entry                                 
+                                Placeholder="automobila" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="unos4">
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[4].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="malikasko.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta5" Margin="0,0,0,24"></Label>
+                                <Entry                                 
+                                Placeholder="automobila" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="unos5" Margin="0,-10,0,0">
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame HorizontalOptions="End" CornerRadius="10" BorderColor="Transparent" WidthRequest="120">
+                            <VerticalStackLayout BackgroundColor="White">
+                                <CheckBox Color="Blue" HorizontalOptions="End" IsChecked="{Binding listVrstaOsiguranja[5].Ugovorena}"></CheckBox>
+                                <Image HeightRequest="100" Source="kaskoosiguranjemobilnihtelefona.png"></Image>
+                                <Label FontSize="10" HorizontalTextAlignment="Center" TextColor="Blue" TextTransform="Uppercase" x:Name="vrsta6"></Label>
+                                <Entry                                 
+                                Placeholder="mobitela" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="unos6">
+                                </Entry>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="0,-20,0,10">
+                <Frame  
+                  CornerRadius="10"
+                  HorizontalOptions="Start"
+                  BackgroundColor="White"
+                  WidthRequest="170"
+                  HeightRequest="60"
+                  Padding="0"
+                  BorderColor="Transparent"
+                  Margin="40,0,20,0">
+                <HorizontalStackLayout>
+                        <Image Source="taxiicon.png" HeightRequest="24" Margin="0,0,20,20"></Image>
+                    <VerticalStackLayout>
+                        <Label Text="Trajanje"></Label>
+                        <Entry                                 
+                                Placeholder="mjeseci" 
+                                PlaceholderColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Keyboard="Numeric" x:Name="mjeseci">
+                        </Entry>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame  
+                  CornerRadius="10"
+                  HorizontalOptions="Start"
+                  BackgroundColor="White"
+                  WidthRequest="170"
+                  HeightRequest="60"
+                  Padding="0"
+                  BorderColor="Transparent">
+                <HorizontalStackLayout>
+                        <Image Source="usericon.png" HeightRequest="24" Margin="0,0,20,20"></Image>
+                    <VerticalStackLayout>
+                        <Label Text="Porodično"></Label>
+                        <Switch ThumbColor="Blue" OnColor="Gray" x:Name="porodicno"></Switch>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Frame>
+            </HorizontalStackLayout>
+            <Button Clicked="OnClicked" Text="Prikaži iznos police" TextColor="White" WidthRequest="340" CornerRadius="40" TextTransform="Uppercase" BackgroundColor="Blue"></Button>
+            <Label Text="Kalkulacija grupnog popusta je informativnog karaktera!" TextColor="Gray" FontSize="Micro" HorizontalTextAlignment="Center" Margin="0,5,0,20"></Label>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
